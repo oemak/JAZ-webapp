@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/webapp-api" />
     <file type="web" url="file://$PROJECT_DIR$/webapp-data" />
+    <file type="web" url="file://$PROJECT_DIR$/webapp-frontend" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

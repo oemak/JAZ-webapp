@@ -9,7 +9,9 @@ import java.util.Optional;
 
 @Repository
 public interface BeerRepository extends JpaRepository<Beer, String> {
-    List<Beer> findByBreweryId(Long breweryId);
-    List<Beer> findByCategoryId(Long categoryId);
     Optional<Beer> findBySku(String sku);
+    boolean existsBySku(String sku);
+    List<Beer> findByNameContainingIgnoreCase(String name);
+    List<Beer> findByBreweryNameContainingIgnoreCase(String breweryName);
+    List<Beer> findByCategoryNameContainingIgnoreCase(String categoryName);
 }

@@ -1,9 +1,11 @@
 package com.webapp.webappdata.client;
 
-import com.webapp.webappdata.dto.api.BeerApiResponse;
+import com.webapp.webappdata.dto.api.ApiResponse;
 import com.webapp.webappdata.dto.api.BeerDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -21,7 +23,14 @@ public class BeerApiClient {
                 .build()
                 .toUriString();
 
-        BeerApiResponse response = restTemplate.getForObject(url, BeerApiResponse.class);
+        ApiResponse<BeerDTO> response = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<ApiResponse<BeerDTO>>() {}
+        ).getBody();
+
+        log.info("Raw API response: {}", response);
 
         if (response != null && response.getCode() == 200 && !response.isError()) {
             log.info("Successfully retrieved beer data: {}", response.getData());

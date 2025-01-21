@@ -7,8 +7,9 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface BreweryAddressMapper {
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "brewery", ignore = true)
+    @Mapping(source = "city", target = "city")
+    @Mapping(source = "state", target = "state")
+    @Mapping(source = "country", target = "country")
     BreweryAddress toEntity(BreweryAddressDTO dto);
 
     BreweryAddressDTO toDto(BreweryAddress address);

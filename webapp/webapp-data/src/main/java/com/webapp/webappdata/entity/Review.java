@@ -27,7 +27,7 @@ public class Review {
 
     // Review -> ReviewDetails
     @OneToOne(mappedBy = "review", cascade = CascadeType.ALL)
-    private ReviewDetails details;
+    private ReviewDetails reviewDetails;
 
     public Long getId() {
         return id;
@@ -77,12 +77,12 @@ public class Review {
         this.beer = beer;
     }
 
-    public ReviewDetails getDetails() {
-        return details;
+    public ReviewDetails getReviewDetails() {
+        return reviewDetails;
     }
 
-    public void setDetails(ReviewDetails details) {
-        this.details = details;
+    public void setDetails(ReviewDetails reviewDetails) {
+        this.reviewDetails = reviewDetails;
     }
 
 }

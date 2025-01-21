@@ -1,1 +1,4 @@
 rootProject.name = 'webapp-api'
+
+include 'webapp-data'
+project(':webapp-data').projectDir = new File(settingsDir, '../webapp-data')

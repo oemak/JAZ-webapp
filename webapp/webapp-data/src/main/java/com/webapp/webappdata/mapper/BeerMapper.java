@@ -3,6 +3,8 @@ package com.webapp.webappdata.mapper;
 import com.webapp.webappdata.dto.api.BeerDTO;
 import com.webapp.webappdata.dto.response.BeerDetailsDTO;
 import com.webapp.webappdata.entity.Beer;
+import com.webapp.webappdata.entity.BeerCategory;
+import com.webapp.webappdata.entity.Brewery;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -20,10 +22,30 @@ public interface BeerMapper {
     @Mapping(source = "servingTempF", target = "servingTempF")
     @Mapping(source = "servingTempC", target = "servingTempC")
     @Mapping(source = "features", target = "features")
-    @Mapping(target = "brewery", ignore = true)
-    @Mapping(target = "category", ignore = true)
+    @Mapping(source = "brewery", target = "brewery")
+    @Mapping(source = "category", target = "category")
     @Mapping(target = "reviews", ignore = true)
     Beer toEntity(BeerDTO dto);
 
+    @Mapping(target = "averageRating", ignore = true)
+    @Mapping(source = "reviews", target = "reviews")
     BeerDetailsDTO toDetailsDto(Beer beer);
+
+    default Brewery mapBrewery(String breweryName) {
+        if (breweryName == null) {
+            return null;
+        }
+        Brewery brewery = new Brewery();
+        brewery.setName(breweryName);
+        return brewery;
+    }
+
+    default BeerCategory mapCategory(String categoryName) {
+        if (categoryName == null) {
+            return null;
+        }
+        BeerCategory category = new BeerCategory();
+        category.setName(categoryName);
+        return category;
+    }
 }

@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/webapp-api" />
+            <option value="$PROJECT_DIR$/webapp-data" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -18,6 +19,15 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/webapp-data" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/webapp-frontend" />
+        <option name="gradleJvm" value="openjdk-23" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/webapp-frontend" />
           </set>
         </option>
       </GradleProjectSettings>
